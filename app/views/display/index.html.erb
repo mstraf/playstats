@@ -1,0 +1,12 @@
+<h3> xml files read from public directory. </h3>
+
+  <%= link_to "read play", plays_path %>
+
+
+<hr>
+View read files:
+<br>
+<% @plays.each do |p| %>
+<%= link_to p.title, play_path(p) %>
+<br>
+<% end %>

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  scene_id: 
+  persona_id: 
+
+two:
+  scene_id: 
+  persona_id: 

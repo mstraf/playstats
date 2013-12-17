@@ -1,0 +1,43 @@
+<!--  jquery dataTable not working
+<script type="text/javascript">
+
+
+ $(document).ready(function() 
+    { 
+	
+         $('#players').dataTable(); 
+	
+    } 
+); 
+
+</script> -->
+<table id="players" class="table table-striped table-bordered" border=1>
+<thread>
+<tr>
+	<th>Persona</th>
+	<th>Total Lines</th>
+	<th>Longest Speech</th>
+	<th>Number of Scenes</th>
+	<th>Percentage of Total Scenes</th>
+</tr>
+</thread>
+<tbody>
+<% @persona.each do |p| %>
+  <tr>
+  <td><%= p.name %></td>
+  <td><% num=[] %>
+	<% p.speeches.each do |s| %>
+	<% num << s.lines.count %>
+	<%end %>
+      <%= num.sum %></td>
+  <td> <%= num.max %></td>
+  <td><%= p.speeches.group(:scene_id).distinct.count.size %></td>
+  <td><%= (p.speeches.group(:scene_id).distinct.count.size)*100 / @scenes %></td>
+  </tr>
+<%end %>
+
+
+</tbody>
+</table>
+
+
